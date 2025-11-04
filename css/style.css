@@ -1,3 +1,72 @@
+/* =====================
+   VARIÁVEIS DE COR
+===================== */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #0f0e0e;
+  --nav-bg: #a1a7e3;
+  --nav-btn-bg: #2f3578;
+  --nav-btn-hover: #081d55;
+  --form-bg: #ffffff;
+  --accent: #28a745;
+  --accent-hover: #218838;
+  --user-list-bg: #9e9ea7;
+  --list-item-bg: #edeaea;
+  --danger: #e74c3c;
+  --danger-hover: #c0392b;
+  --focus-outline: #005fcc;
+}
+
+/* 🌙 Tema Escuro */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f2f2f2;
+  --nav-bg: #1f1f3a;
+  --nav-btn-bg: #3c3f86;
+  --nav-btn-hover: #575b9c;
+  --form-bg: #1e1e1e;
+  --accent: #5cb85c;
+  --accent-hover: #449d44;
+  --user-list-bg: #2e2e2e;
+  --list-item-bg: #3a3a3a;
+  --danger: #ff5c5c;
+  --danger-hover: #ff3b3b;
+  --focus-outline: #66aaff;
+}
+
+/* =====================
+   🌕 ALTO CONTRASTE
+===================== */
+/* =====================
+   🌕 ALTO CONTRASTE
+===================== */
+[data-theme="high-contrast"] {
+  --bg-color: #000000;
+  --text-color: #ffff00;
+  --nav-bg: #000000;
+  --nav-btn-bg: #ffff00;
+  --nav-btn-hover: #e6e600;
+  --form-bg: #000000;
+  --accent: #ffff00;
+  --accent-hover: #e6e600;
+  --user-list-bg: #000000;
+  --list-item-bg: #1a1a1a;
+  --danger: #ff0000;
+  --danger-hover: #ff4d4d;
+  --focus-outline: #00ffff;
+}
+
+/* Botões com texto preto no alto contraste */
+[data-theme="high-contrast"] nav button,
+[data-theme="high-contrast"] .btn {
+  color: #000000 !important;
+  font-weight: 700;
+}
+
+
+/* =====================
+   REGRAS GERAIS
+===================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,13 +75,13 @@
 
 html, body {
   height: 100%;
-  margin: 0;
 }
 
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    text-align: center;
-    color: #0f0e0e;
+  font-family: "Segoe UI", Arial, sans-serif;
+  text-align: center;
+  color: var(--text-color);
+  background-color: var(--bg-color);
   display: flex;
   flex-direction: column;
 }
@@ -21,27 +90,21 @@ main#app {
   flex: 1; 
 }
 
-
-body nav {
-  justify-content: right;
-  padding: 20px;
-}
-
-.form label {
-  text-align: left;
-}
-
+/* =====================
+   NAVEGAÇÃO
+===================== */
 nav {
-    background-color: #a1a7e3;
+  background-color: var(--nav-bg);
   display: flex;
   gap: 25px;
+  justify-content: right;
+  padding: 20px;
   margin-bottom: 45px;
-
 }
 
 nav button {
-  background: #2f3578;
-  color: rgb(240, 241, 244);
+  background: var(--nav-btn-bg);
+  color: #fff;
   border: none;
   padding: 10px 15px;
   border-radius: 15px;
@@ -50,20 +113,27 @@ nav button {
 }
 
 nav button:hover {
-  background: #081d55;
+  background: var(--nav-btn-hover);
 }
 
+/* =====================
+   CONTEÚDO PRINCIPAL
+===================== */
 .page {
-  margin-top: 30px;
   margin: 85px;
   border-radius: 10px;
   padding: 20px;
+  background: var(--form-bg);
+  box-shadow: 0 8px 11px rgba(0,0,0,0.1);
 }
 
 .page h1 {
   margin-bottom: 40px;
 }
 
+/* =====================
+   FORMULÁRIO
+===================== */
 .form {
   display: flex;
   flex-direction: column;
@@ -72,7 +142,7 @@ nav button:hover {
   margin: 15px auto;    
   max-width: 500px;     
   padding: 20px;       
-  background-color: #fff; 
+  background-color: var(--form-bg);
   border-radius: 10px;
   box-shadow: 0 8px 11px rgba(0,0,0,0.1); 
 }
@@ -81,6 +151,7 @@ nav button:hover {
   display: flex;
   flex-direction: column;
   font-weight: 500;
+  text-align: left;
 }
 
 .form input {
@@ -90,13 +161,16 @@ nav button:hover {
 }
 
 .form input:focus {
-  border-color: #007bff;
+  border-color: var(--focus-outline);
   outline: none;
 }
 
+/* =====================
+   BOTÕES
+===================== */
 .btn {
-  background-color: #28a745;
-  color: rgb(246, 243, 243);
+  background-color: var(--accent);
+  color: #fff;
   border: none;
   padding: 10px;
   border-radius: 8px;
@@ -104,70 +178,88 @@ nav button:hover {
   width: 120px;
   margin: 50px auto 0 auto; 
   display: block;
+  transition: background 0.2s, transform 0.2s;
 }
-
 
 .btn:hover {
-  background-color: #218838;
+  background-color: var(--accent-hover);
 }
 
-.feedback {
-  margin-top: 10px;
-  font-weight: bold;
-  background-color: #ecedf3;
-
-}
-
-
+/* =====================
+   LISTA DE USUÁRIOS
+===================== */
 .user-list {
-  
-list-style: none;
-text-align: left;
+  list-style: none;
+  text-align: left;
   margin-top: 5px;
-  border-radius: 10px; color: rgb(0, 0, 0);
-  border-bottom: #f8f8f8;
+  border-radius: 10px;
+  background-color: var(--user-list-bg);
   padding: 10px;
-}
-
-.user-list li {
-  background: #edeaea;
-  padding: 5px;
-  border-radius: 6px;
-  margin-bottom: 5px;
-}
-
-.rodape {
-
-  text-align: center;
-  padding: 30px 0;
-  margin-top: 30px;
-  font-size: 0.9em;
-  background-color: #a1a7e3;
-  color: #121010;
-  width: 100%;
-}
-
-.delete-btn {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  color: #e74c3c;
-  transition: transform 0.2s, color 0.2s;
-}
-
-.delete-btn:hover {
-  color: #c0392b;
-  transform: scale(1.2);
 }
 
 .user-list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #edeaea;
+  background: var(--list-item-bg);
   padding: 8px 10px;
   border-radius: 6px;
   margin-bottom: 5px;
 }
 
+/* =====================
+   BOTÃO EXCLUIR
+===================== */
+.delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--danger);
+  transition: transform 0.2s, color 0.2s;
+}
+
+.delete-btn:hover {
+  color: var(--danger-hover);
+  transform: scale(1.2);
+}
+
+/* =====================
+   RODAPÉ
+===================== */
+.rodape {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 30px;
+  font-size: 0.9em;
+  background-color: var(--nav-bg);
+  color: var(--text-color);
+  width: 100%;
+}
+
+/* =====================
+   ACESSIBILIDADE: FOCO
+===================== */
+button:focus,
+input:focus,
+a:focus {
+  outline: 3px solid var(--focus-outline);
+  outline-offset: 3px;
+  box-shadow: 0 0 5px rgba(0, 95, 204, 0.6);
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--focus-outline);
+  outline-offset: 3px;
+}
+
+nav button:focus {
+  background-color: var(--nav-btn-hover);
+}
+
+.btn:focus {
+  background-color: var(--accent-hover);
+  transform: scale(1.03);
+}

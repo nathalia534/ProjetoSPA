@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <title>SPA Interativa</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <title>SPA Interativa</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+  <header>
+<nav role="navigation" aria-label="Navegação principal">
+  <button data-page="home" aria-current="page">Home</button>
+  <button data-page="form">Formulário</button>
+  <button data-page="users">Usuários</button>
+  <button id="theme-toggle" aria-pressed="false" aria-label="Alternar modo de contraste">
+    🌙 Modo Escuro
+  </button>
+  <button id="contrast-toggle" aria-pressed="false" aria-label="Ativar alto contraste">
+  🌓 Alto Contraste
+</button>
 
-    <nav>
-        <button data-page="home">Home</button>
-        <button data-page="form">Formulário</button>
-        <button data-page="users">Usuários</button>
-    </nav>
-    
+</nav>
+
+  </header>
+
+  <main id="app" role="main" tabindex="-1">
+    <!-- Conteúdo dinâmico será carregado aqui -->
+  </main>
+
+  <footer class="rodape" role="contentinfo">
+    <p>SPA Interativa &copy; 2024</p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
 </body>
-
-    <main id="app">
-        <!-- Conteúdo dinâmico será carregado aqui -->
-    </main>
-
-    <footer class="rodape">
-        <p>SPA Interativa &copy; 2024</p>                       
-    </footer>
-
-    <script type="module" src="js/app.js"></script>
-
-
 </html>
